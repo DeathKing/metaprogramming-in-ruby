@@ -392,7 +392,7 @@ puts eval(<span class="hljs-string">"str + ' Rubyist'"</span>) <span class="hljs
 <p>　　关于<code>eval</code>方法，苏小脉给出了下面的建议：</p>
 <blockquote>
 <p>　　一般来说，能避免<code>eval</code>就尽量避免，因为<code>eval</code> 有额外的“分析时”开销（将字符串作为源代码进行词法、文法分析），而这个“剖析时”却又是在程序“运行时”进行的。把不需要惰性求值的表达式预先进行及早求值，能避免一些分析时开销。如果可能的话，用<code>instance_exec</code>，或<code>instance_eval</code> 带块的形式，也比直接在字符串上求值好。</p>
-<p>——苏小脉在<a href="http://bbs.66rpg.com/thread-165322-1-1.html" target="_blank">如果用这种方式来构造一些复杂的对象呢？</a>上的发言</p>
+<p>——苏小脉在<a href="http://rm.66rpg.com/thread-165322-1-1.html" target="_blank">如果用这种方式来构造一些复杂的对象呢？</a>上的发言</p>
 </blockquote>
 <p>　　而关于<code>eval</code>方法的安全性漏洞，Dave Thomas在他的著作Programming Ruby（<a href="http://www.rubycentral.com/pickaxe/taint.html" target="_blank">英文页面</a>）中列举了一个十分有趣的例子：</p>
 <blockquote>

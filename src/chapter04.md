@@ -190,7 +190,7 @@ puts eval("str + ' Rubyist'") # => "Hello Rubyist"
 
 > 　　一般来说，能避免`eval`就尽量避免，因为`eval` 有额外的“分析时”开销（将字符串作为源代码进行词法、文法分析），而这个“剖析时”却又是在程序“运行时”进行的。把不需要惰性求值的表达式预先进行及早求值，能避免一些分析时开销。如果可能的话，用`instance_exec`，或`instance_eval` 带块的形式，也比直接在字符串上求值好。
 >
-> ——苏小脉在[如果用这种方式来构造一些复杂的对象呢？](http://bbs.66rpg.com/thread-165322-1-1.html)上的发言
+> ——苏小脉在[如果用这种方式来构造一些复杂的对象呢？](http://rm.66rpg.com/thread-165322-1-1.html)上的发言
 
 　　而关于`eval`方法的安全性漏洞，Dave Thomas在他的著作Programming Ruby（[英文页面](http://www.rubycentral.com/pickaxe/taint.html)）中列举了一个十分有趣的例子：
 
