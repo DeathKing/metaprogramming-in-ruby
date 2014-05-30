@@ -1,0 +1,688 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>元编程实战 | Ruby中的元编程</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="　　本系列翻译自Ruby Metaprogramming站点上的课程笔记，并加入了我（DeathKing）的一些个人演绎、资料补充等。希望对大家有所帮助。">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./chapter08.html" />
+        
+        
+        <link rel="prev" href="./chapter06.html" />
+        
+
+        <meta property="og:title" content="元编程实战 | Ruby中的元编程">
+        <meta property="og:site_name" content="Ruby中的元编程">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="7" data-basepath="." data-revision="1401444078312">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Ruby中的元编程</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="chapter01.html">
+            
+            <a href="./chapter01.html">
+                <i class="fa fa-check"></i> <b>1.</b> 前言
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02.html">
+            
+            <a href="./chapter02.html">
+                <i class="fa fa-check"></i> <b>2.</b> 实例变量、方法、类
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03.html">
+            
+            <a href="./chapter03.html">
+                <i class="fa fa-check"></i> <b>3.</b> 方法的调用
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04.html">
+            
+            <a href="./chapter04.html">
+                <i class="fa fa-check"></i> <b>4.</b> 实用元编程方法
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05.html">
+            
+            <a href="./chapter05.html">
+                <i class="fa fa-check"></i> <b>5.</b> 绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06.html">
+            
+            <a href="./chapter06.html">
+                <i class="fa fa-check"></i> <b>6.</b> 块和绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07.html">
+            
+            <a href="./chapter07.html">
+                <i class="fa fa-check"></i> <b>7.</b> 元编程实战
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="chapter08.html">
+            
+            <a href="./chapter08.html">
+                <i class="fa fa-check"></i> <b>8.</b> 结语
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 87.5%;min-width: 75%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./chapter01.html" title="前言" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
+    
+        <a href="./chapter02.html" title="实例变量、方法、类" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
+    
+        <a href="./chapter03.html" title="方法的调用" class="chapter done new-chapter" data-progress="3" style="left: 37.5%;"></a>
+    
+        <a href="./chapter04.html" title="实用元编程方法" class="chapter done new-chapter" data-progress="4" style="left: 50%;"></a>
+    
+        <a href="./chapter05.html" title="绑定" class="chapter done new-chapter" data-progress="5" style="left: 62.5%;"></a>
+    
+        <a href="./chapter06.html" title="块和绑定" class="chapter done new-chapter" data-progress="6" style="left: 75%;"></a>
+    
+        <a href="./chapter07.html" title="元编程实战" class="chapter done new-chapter" data-progress="7" style="left: 87.5%;"></a>
+    
+        <a href="./chapter08.html" title="结语" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_11">
+                    
+                        <h1 id="-">元编程实战</h1>
+<h2 id="-1">问题1</h2>
+<p>　　此问题改编自Dave Thomas的屏播<a href="http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming" target="_blank">Episode 5: Nine Examples of Metaprogramming</a>。</p>
+<p>　　众所周知，RubyLearnin.org的Core Ruby课程已经开办8周了。每周我们都有一个满分10分的测验。8周结束后，学生可以知道他的分数百分比。例如，有一个学生，在过去的8周里，他的得分情况为：5、10、10、10、10、10、10、10。那么，他的得分百分比为93.75%。</p>
+<p>　　问题描述：每一批Core Ruby学习班有成百上千的学生。让我们假设我们有一个可以计算这个百分比并返回对应的值的Ruby方法。</p>
+<h3 id="-">现存的类和方法</h3>
+<p>　　让我们先来看看已存在的类和方法，并修改它，来解决上述问题。</p>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    percentage_calculation(*scores)
+  <span class="hljs-keyword">end</span>
+
+  private
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>percentage_calculation(*scores)
+    puts <span class="hljs-string">"Calculation for <span class="hljs-subst">#{scores.inspect}</span>"</span>
+    scores.inject {|sum, n| sum + n } * (<span class="hljs-number">100.0</span>/<span class="hljs-number">80.0</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+r = <span class="hljs-constant">Result</span>.new
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+</code></pre>
+<p>　　上述代码中，我们定义了<code>Result</code>类以及一个<code>total</code>方法。<code>total</code>方法用于列举每个学生的成绩。<code>score</code>代表了学生在课程的8次竞赛中获得的成绩。私有方法<code>percentage_calculation</code>用于计算等分率。为了测试如此，我们调用<code>total</code>方法四次。前两次和后两次调用时分别采用相同的数组，运行程序，我们得到下面的输出：</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">93.75</span>
+<span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">93.75</span>
+<span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">100.0</span>
+<span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">100.0</span>
+</code></pre>
+<p>　　观察输出，我们意识到我们调用了<code>total</code>方法四次，这也意味着我们调用<code>percentage_calculation</code>方法四次。我们将要尝试减少调用<code>percentage_calculation</code>方法的次数。</p>
+<h3 id="-">常规做法</h3>
+<p>　　减少对<code>percentage_calculation</code>方法的调用的一种途径是用某种方法存放之前计算出的数据。对此，我们需要定义一个叫做<code>MemoResult</code>的子类，该子类拥有一个叫做<code>@mem</code>的<code>Hash</code>类实例变量。代码如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    percentage_calculation(*scores)
+  <span class="hljs-keyword">end</span>
+
+  private
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>percentage_calculation(*scores)
+    puts <span class="hljs-string">"Calculation for <span class="hljs-subst">#{scores.inspect}</span>"</span>
+    scores.inject {|sum, n| sum + n } * (<span class="hljs-number">100.0</span>/<span class="hljs-number">80.0</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MemoResult</span> <span class="hljs-inheritance">&lt; <span class="hljs-parent">Result</span></span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize
+    <span class="hljs-variable">@mem</span> = {}
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    <span class="hljs-keyword">if</span> <span class="hljs-variable">@mem</span>.has_key?(scores)
+      <span class="hljs-variable">@mem</span>[scores]
+    <span class="hljs-keyword">else</span>
+      <span class="hljs-variable">@mem</span>[scores] = <span class="hljs-keyword">super</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+r = <span class="hljs-constant">MemoResult</span>.new
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+</code></pre>
+<p>　　<code>Hash</code>类提供了<code>has_key?</code>方法用于检查某个散列是否拥有指定的键。在上述程序中，如果<code>has_key?</code>返回<code>true</code>，那么我们就直接使用<code>@mem</code>中存放的值，否则我们将调用<code>percentage_calculation(*scores)</code>重新计算改值并存放在<code>@mem</code>中。输出如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">93.75</span>
+<span class="hljs-number">93.75</span>
+<span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">100.0</span>
+<span class="hljs-number">100.0</span>
+</code></pre>
+<p>　　观察上述输出，我们不难得出，在第二次、第四次调用<code>r.total</code>的时候，我们直接使用的存储值。</p>
+<h3 id="-class-new-define_method-">使用Class.new和define_method的做法</h3>
+<p>　　上面使用的<code>MemoResult</code>类与其父类精密相连。为了避免这样，我们使用目前学过的Ruby元编程知识动态创建这个子类。</p>
+<p>　　我们需要编写一个接受两个参数的方法<code>mem_result</code>：一个参数为父类的名字，另一个参数为方法的名字（而<code>mem_result</code>方法会返回定义好的类的名字）。下面是代码：</p>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    percentage_calculation(*scores)
+  <span class="hljs-keyword">end</span>
+
+  private
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>percentage_calculation(*scores)
+    puts <span class="hljs-string">"Calculation for <span class="hljs-subst">#{scores.inspect}</span>"</span>
+    scores.inject {|sum, n| sum + n } * (<span class="hljs-number">100.0</span>/<span class="hljs-number">80.0</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> </span>mem_result(klass, method)
+  mem = {}
+  <span class="hljs-constant">Class</span>.new(klass) <span class="hljs-keyword">do</span>
+    define_method(method) <span class="hljs-keyword">do</span> |*args|
+      <span class="hljs-keyword">if</span> mem.has_key?(args)
+        mem[args]
+      <span class="hljs-keyword">else</span>
+        mem[args] = <span class="hljs-keyword">super</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+r = mem_result(<span class="hljs-constant">Result</span>, <span class="hljs-symbol">:total</span>).new
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+</code></pre>
+<p>　　输出如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">93.75</span>
+<span class="hljs-number">93.75</span>
+<span class="hljs-constant">Calculation</span> <span class="hljs-keyword">for</span> [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]
+<span class="hljs-number">100.0</span>
+<span class="hljs-number">100.0</span>
+</code></pre>
+<p>　　代码<code>Class.new(klass)</code>以给定的<code>klass</code>为父类，创建了一个匿名类。块被用作类的体，包含了该类中的方法。而<code>define_method</code>定义了<code>method</code>所代表的方法（也就是<code>mem_result</code>的第二个参数）。</p>
+<blockquote>
+<p>注意</p>
+<p>我们并没有编写<code>initialize</code>方法和使用实例变量<code>@mem</code>。相反地，我们使用的是局部变量<code>mem</code>，这是因为块是一个闭包，而局部变量<code>mem</code>在块内部是有效的。</p>
+</blockquote>
+<h3 id="-">使用匿名类的做法</h3>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    percentage_calculation(*scores)
+  <span class="hljs-keyword">end</span>
+
+  private
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>percentage_calculation(*scores)
+    puts <span class="hljs-string">"Calculation for <span class="hljs-subst">#{scores.inspect}</span>"</span>
+    scores.inject {|sum, n| sum + n } * (<span class="hljs-number">100.0</span>/<span class="hljs-number">80.0</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+r = <span class="hljs-constant">Result</span>.new
+
+<span class="hljs-comment"># Anonymous class on object</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> </span>r.total(*scores)
+  <span class="hljs-variable">@mem</span> ||= {}
+  <span class="hljs-keyword">if</span> <span class="hljs-variable">@mem</span>.has_key?(scores)
+    <span class="hljs-variable">@mem</span>[scores]
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-variable">@mem</span>[scores] = <span class="hljs-keyword">super</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+</code></pre>
+<h3 id="-">使用即时创建匿名类的做法</h3>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Result</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>total(*scores)
+    percentage_calculation(*scores)
+  <span class="hljs-keyword">end</span>
+
+  private
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>percentage_calculation(*scores)
+    puts <span class="hljs-string">"Calculation for <span class="hljs-subst">#{scores.inspect}</span>"</span>
+    scores.inject {|sum, n| sum + n } * (<span class="hljs-number">100.0</span>/<span class="hljs-number">80.0</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> </span>mem_result(obj, method)
+  obj.<span class="hljs-keyword">class</span>.class_eval <span class="hljs-keyword">do</span>
+    mem ||= {}
+    define_method(method) <span class="hljs-keyword">do</span> |*args|
+      <span class="hljs-keyword">if</span> mem.has_key?(args)
+        mem[args]
+      <span class="hljs-keyword">else</span>
+        mem[args] = <span class="hljs-keyword">super</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+r = <span class="hljs-constant">Result</span>.new
+mem_result(r, <span class="hljs-symbol">:total</span>)
+
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+puts r.total(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,<span class="hljs-number">10</span>)
+</code></pre>
+<p>　　上述的代码中，我们编写了新的<code>mem_result</code>方法。该方法的第一个参数<code>obj</code>接收一个对象，用于建立此对象的匿名类。该方法的第二个参数<code>method</code>接受一个方法，用于指明要在匿名类中创建的方法名字。</p>
+<p>　　在此之前，我们已经使用<code>define_method</code>即时地创建了一个方法。问题是，<code>define_method</code>只能对类或模块起作用，而我们这里处理的是对象。因此，我们使用<code>obj.class</code>来获得对象所属的类，然后对类使用<code>class_eval</code>和<code>define_method</code>方法在该类中添加一个实例方法<code>method</code>。现在，我们来运行一下代码并检查输出。</p>
+<pre><code>result.rb:21:in `total&#39;: super: no superclass method `total&#39; (NoMethodError)
+  from result.rb:30
+</code></pre><p>　　代码没有运行。</p>
+<p>　　代码<code>mem[args] = super</code>尝试在匿名类中调用<code>Result</code>类中的<code>total</code>方法。但问题是，我们是在<code>Result</code>类中直接定义的<code>total</code>方法。我们说过，<code>obj.class</code>返回的是<code>Result</code>，所以这并不起效。我们需要做得是创建一个匿名类，并将这个<code>total</code>方法放到这个匿名类中。同时，我们的匿名类应该是<code>Result</code>类的子类。</p>
+<p>　　让我们像下面一样创建需要的匿名类。</p>
+<pre><code class="lang-ruby">anon = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-inheritance">&lt;</span><span class="hljs-inheritance">&lt; <span class="hljs-parent">obj</span></span></span>
+  <span class="hljs-keyword">self</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　上述代码中的<code>self</code>返回了我们需要的匿名类，并被变量<code>anon</code>所引用。大多数的Ruby程序员会像下面这样把这些代码写作一行，以表示他们正创建鬼魂类。</p>
+<pre><code class="lang-ruby">anon = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-inheritance">&lt;</span><span class="hljs-inheritance">&lt; <span class="hljs-parent">obj</span></span>;</span> <span class="hljs-keyword">self</span>; <span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　有了匿名类后，我们应该对其使用<code>class_eval</code>方法，就像下面这样：</p>
+<pre><code>class Result
+  def total(*scores)
+    percentage_calculation(*scores)
+  end
+
+  private
+
+  def percentage_calculation(*scores)
+    puts &quot;Calculation for #{scores.inspect}&quot;
+    scores.inject {|sum, n| sum + n } * (100.0/80.0)
+  end
+end
+
+def mem_result(obj, method)
+  anon = class &lt;&lt; obj; self; end
+  anon.class_eval do
+    mem ||= {}
+    define_method(method) do |*args|
+      if mem.has_key?(args)
+        mem[args]
+      else
+        mem[args] = super
+      end
+    end
+  end
+end
+
+r = Result.new
+mem_result(r, :total)
+
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(5,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+puts r.total(10,10,10,10,10,10,10,10)
+</code></pre><p>　　代码正常运行，并返回希望的结果。</p>
+<h2 id="-2">问题2</h2>
+<p>　　本例根据Hal Fulton的文章[An Exercise in Metaprogramming with Ruby(<a href="http://an%20exercise%20in%20metaprogramming%20with%20ruby/)改编。" target="_blank">http://an%20exercise%20in%20metaprogramming%20with%20ruby/)改编。</a></p>
+<p>　　假设我们有两个CSV（comma-separated values，数据使用逗号分隔的）文件，其头部有一些描述性的文字，如下所示：</p>
+<p>　　文件：location.txt</p>
+<pre><code>name,country
+&quot;Matz&quot;, &quot;USA&quot;
+&quot;Fabio Akita&quot;, &quot;Brazil&quot;
+&quot;Peter Cooper&quot;, &quot;UK&quot;
+</code></pre><p>　　文件：twitter.txt</p>
+<pre><code>twitterid,url
+&quot;AkitaOnRails&quot;,&quot;http://www.akitaonrails.com/&quot;
+&quot;peterc&quot;,&quot;http://www.petercooper.co.uk/&quot;
+</code></pre><p>　　首先，我们建立一个名为datawrapper.rb的文件，并建立一个类。我们会调用<code>DataWrapper</code>类并定义一个名为<code>wrap</code>的类方法，此方法请求一个用于标识文件名的参数，并据此建立一个类。上面的两个文件的第一行都是由逗号分隔的属性名（attribute names）。因此，我们想要把这些文件当做是数据数组，我们将要读取这些数据，并以数组的形式存放。</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># file: datawrapper.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataWrapper</span></span>
+   <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.wrap(file_name)
+     data = <span class="hljs-constant">File</span>.new(file_name)
+     header = data.gets.chomp
+     data.close
+     puts header <span class="hljs-comment"># =&gt; name,country</span>
+     <span class="hljs-comment"># in the end we return the class name</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　接着，我们编写一个小程序名为testdatawrapper.rb。尝试着读取location.txt文件。</p>
+<pre><code class="lang-ruby"><span class="hljs-comment">#testdatawrapper.rb</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'datawrapper'</span>
+<span class="hljs-constant">DataWrapper</span>.wrap(<span class="hljs-string">"location.txt"</span>)
+</code></pre>
+<p>　　回到datawrapper.rb程序，我们需要新建一个类，并给他适当的名字：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># file: datawrapper.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataWrapper</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.wrap(file_name)
+    data = <span class="hljs-constant">File</span>.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = <span class="hljs-constant">File</span>.basename(file_name, <span class="hljs-string">".txt"</span>).capitalize
+    klass = <span class="hljs-constant">Object</span>.const_set(class_name, <span class="hljs-constant">Class</span>.new)
+    klass <span class="hljs-comment"># we return the class name</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　变量<code>klass</code>指代的是我们新建的类。如果<code>file_name</code>参数所指向的文件为“location.txt”，那么新建立得类名会被命名为<code>Location</code>。</p>
+<p>　　再次运行修改后的程序。</p>
+<pre><code class="lang-ruby"><span class="hljs-comment">#testdatawrapper.rb</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'datawrapper'</span>
+data = <span class="hljs-constant">DataWrapper</span>.wrap(<span class="hljs-string">"location.txt"</span>) <span class="hljs-comment"># Capture return value and</span>
+puts data <span class="hljs-comment"># =&gt; Location</span>
+</code></pre>
+<p>　　然后就是大展身手的时候了。文件第一行读入的是表名（List Name）。我们只需要使用<code>split</code>方法即可快速读入。 修改后的datawrapper.rb如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># file: datawrapper.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataWrapper</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.wrap(file_name)
+    data = <span class="hljs-constant">File</span>.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = <span class="hljs-constant">File</span>.basename(file_name, <span class="hljs-string">".txt"</span>).capitalize
+    klass = <span class="hljs-constant">Object</span>.const_set(class_name, <span class="hljs-constant">Class</span>.new)
+    <span class="hljs-comment"># get attribute names</span>
+    names = header.split(<span class="hljs-string">","</span>)
+    p names <span class="hljs-comment"># =&gt; ["name", "country"]</span>
+    klass <span class="hljs-comment"># we return the class name</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　现在，在我们新建立的类的上下文中使用<code>class_eval</code>。此时，我们会定义一个<code>initialize</code>方法。并且，我们应该建立一个<code>to_s</code>方法，使得我们能够将其输出，记得使用<code>alias</code>关键字将<code>to_s</code>方法作为<code>inspect</code>方法的同义词。修改后的datawrapper.rb程序如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># file: datawrapper.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataWrapper</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.wrap(file_name)
+    data = <span class="hljs-constant">File</span>.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = <span class="hljs-constant">File</span>.basename(file_name, <span class="hljs-string">".txt"</span>).capitalize
+    klass = <span class="hljs-constant">Object</span>.const_set(class_name, <span class="hljs-constant">Class</span>.new)
+    <span class="hljs-comment"># get attribute names</span>
+    names = header.split(<span class="hljs-string">","</span>)
+    klass.class_eval <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">attr_accessor</span> *names
+      define_method(<span class="hljs-symbol">:initialize</span>) <span class="hljs-keyword">do</span> |*values|
+        names.each_with_index <span class="hljs-keyword">do</span> |name, i|
+          instance_variable_set(<span class="hljs-string">"@"</span>+name, values[i])
+        <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">end</span>
+      define_method(<span class="hljs-symbol">:to_s</span>) <span class="hljs-keyword">do</span>
+        str = <span class="hljs-string">"&lt;<span class="hljs-subst">#{<span class="hljs-keyword">self</span>.<span class="hljs-keyword">class</span>}</span>:"</span>
+        names.each {|name| str &lt;&lt; <span class="hljs-string">" <span class="hljs-subst">#{name}</span>=<span class="hljs-subst">#{<span class="hljs-keyword">self</span>.send(name)}</span>"</span> }
+        str + <span class="hljs-string">"&gt;"</span>
+      <span class="hljs-keyword">end</span>
+      alias_method <span class="hljs-symbol">:inspect</span>, <span class="hljs-symbol">:to_s</span>
+    <span class="hljs-keyword">end</span>
+    klass <span class="hljs-comment"># we return the class name</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　下一步，建立一个类方法，用于读取整个文本，并返回一个代表文本中内容的素组对象。类方法的建立涉及到了单体类等概念，但此处不需要仔细考察。修改后的代码如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># file: datawrapper.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataWrapper</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.wrap(file_name)
+    data = <span class="hljs-constant">File</span>.new(file_name)
+    header = data.gets.chomp
+    data.close
+    class_name = <span class="hljs-constant">File</span>.basename(file_name, <span class="hljs-string">".txt"</span>).capitalize
+    klass = <span class="hljs-constant">Object</span>.const_set(class_name, <span class="hljs-constant">Class</span>.new)
+    <span class="hljs-comment"># get attribute names</span>
+    names = header.split(<span class="hljs-string">","</span>)
+    klass.class_eval <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">attr_accessor</span> *names
+      define_method(<span class="hljs-symbol">:initialize</span>) <span class="hljs-keyword">do</span> |*values|
+        names.each_with_index <span class="hljs-keyword">do</span> |name, i|
+          instance_variable_set(<span class="hljs-string">"@"</span>+name, values[i])
+        <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">end</span>
+      define_method(<span class="hljs-symbol">:to_s</span>) <span class="hljs-keyword">do</span>
+        str = <span class="hljs-string">"&lt;<span class="hljs-subst">#{<span class="hljs-keyword">self</span>.<span class="hljs-keyword">class</span>}</span>:"</span>
+        names.each {|name| str &lt;&lt; <span class="hljs-string">" <span class="hljs-subst">#{name}</span>=<span class="hljs-subst">#{<span class="hljs-keyword">self</span>.send(name)}</span>"</span> }
+        str + <span class="hljs-string">"&gt;"</span>
+      <span class="hljs-keyword">end</span>
+      alias_method <span class="hljs-symbol">:inspect</span>, <span class="hljs-symbol">:to_s</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>klass.read
+      array = []
+      data = <span class="hljs-constant">File</span>.new(<span class="hljs-keyword">self</span>.to_s.downcase+<span class="hljs-string">".txt"</span>)
+      data.gets  <span class="hljs-comment"># throw away header</span>
+      data.each <span class="hljs-keyword">do</span> |line|
+        line.chomp!
+        values = eval(<span class="hljs-string">"[<span class="hljs-subst">#{line}</span>]"</span>)
+        array &lt;&lt; <span class="hljs-keyword">self</span>.new(*values)
+      <span class="hljs-keyword">end</span>
+      data.close
+      array
+    <span class="hljs-keyword">end</span>
+    klass <span class="hljs-comment"># we return the class name</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　修改testdatawrapper.rb并测试。</p>
+<pre><code class="lang-ruby"><span class="hljs-comment">#testdatawrapper.rb</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'datawrapper'</span>
+klass = <span class="hljs-constant">DataWrapper</span>.wrap(<span class="hljs-string">"location.txt"</span>)
+list = klass.read
+list.each <span class="hljs-keyword">do</span> |location|
+  puts(<span class="hljs-string">"<span class="hljs-subst">#{location.name}</span> is from the <span class="hljs-subst">#{location.country}</span>"</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　让我们来看看和location.txt文件完全不同的twitter.txt文件。针对于twitter.txt的测试文件如下：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment">#testdatawrapper.rb</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'datawrapper'</span>
+klass = <span class="hljs-constant">DataWrapper</span>.wrap(<span class="hljs-string">"twitter.txt"</span>)
+list = klass.read
+list.each <span class="hljs-keyword">do</span> |twitter|
+  puts(<span class="hljs-string">"<span class="hljs-subst">#{twitter.twitterid}</span>'s site is <span class="hljs-subst">#{twitter.url}</span>"</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　即使我们使用了不同的数据，datawrapper.rb的代码也无需改变！这便是一个Ruby之中的元编程的例子与实践。</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./chapter06.html" class="navigation navigation-prev " aria-label="Previous page: 块和绑定"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./chapter08.html" class="navigation navigation-next " aria-label="Next page: 结语"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

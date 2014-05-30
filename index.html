@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>Introduction | Ruby中的元编程</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="　　本系列翻译自Ruby Metaprogramming站点上的课程笔记，并加入了我（DeathKing）的一些个人演绎、资料补充等。希望对大家有所帮助。">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./chapter01.html" />
+        
+        
+
+        <meta property="og:title" content="Introduction | Ruby中的元编程">
+        <meta property="og:site_name" content="Ruby中的元编程">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="0" data-basepath="." data-revision="1401444078312">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Ruby中的元编程</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="chapter01.html">
+            
+            <a href="./chapter01.html">
+                <i class="fa fa-check"></i> <b>1.</b> 前言
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02.html">
+            
+            <a href="./chapter02.html">
+                <i class="fa fa-check"></i> <b>2.</b> 实例变量、方法、类
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03.html">
+            
+            <a href="./chapter03.html">
+                <i class="fa fa-check"></i> <b>3.</b> 方法的调用
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04.html">
+            
+            <a href="./chapter04.html">
+                <i class="fa fa-check"></i> <b>4.</b> 实用元编程方法
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05.html">
+            
+            <a href="./chapter05.html">
+                <i class="fa fa-check"></i> <b>5.</b> 绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06.html">
+            
+            <a href="./chapter06.html">
+                <i class="fa fa-check"></i> <b>6.</b> 块和绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07.html">
+            
+            <a href="./chapter07.html">
+                <i class="fa fa-check"></i> <b>7.</b> 元编程实战
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="chapter08.html">
+            
+            <a href="./chapter08.html">
+                <i class="fa fa-check"></i> <b>8.</b> 结语
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 0%;min-width: 0%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./chapter01.html" title="前言" class="chapter  new-chapter" data-progress="1" style="left: 12.5%;"></a>
+    
+        <a href="./chapter02.html" title="实例变量、方法、类" class="chapter  new-chapter" data-progress="2" style="left: 25%;"></a>
+    
+        <a href="./chapter03.html" title="方法的调用" class="chapter  new-chapter" data-progress="3" style="left: 37.5%;"></a>
+    
+        <a href="./chapter04.html" title="实用元编程方法" class="chapter  new-chapter" data-progress="4" style="left: 50%;"></a>
+    
+        <a href="./chapter05.html" title="绑定" class="chapter  new-chapter" data-progress="5" style="left: 62.5%;"></a>
+    
+        <a href="./chapter06.html" title="块和绑定" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
+    
+        <a href="./chapter07.html" title="元编程实战" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
+    
+        <a href="./chapter08.html" title="结语" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_4">
+                    
+                        <h1 id="ruby-">Ruby中的元编程</h1>
+<h2 id="-">简介</h2>
+<p>　　本系列翻译自<a href="http://ruby-metaprogramming.rubylearning.com/html/ruby_metaprogramming_1.html" target="_blank">Ruby Metaprogramming</a>站点上的课程笔记，并加入了我（<a href="https://github.com/DeathKing" target="_blank">DeathKing</a>）的一些个人演绎、资料补充等。希望对大家有所帮助。</p>
+<p>　　该课程由<a href="http://www.workingwithrails.com/people/153056-satoshi" target="_blank">Satoshi Asakawa</a>讲授，使用ruby 1.9.1p243 [i386-mingw32]。而我的测试环境则是ruby 1.9.2p180 [i386-mingw32]。</p>
+<p>　　本系列教程在2011年9月间翻译完毕，最初发布在我的博客上。于2014年5月间，藉由GitBook整理，并发布在GitHub上。在此期间，Paolo Perrotta所著的《Ruby元编程》也被翻译并出版。同时，Ruby版本也从1.9飞跃到了2.1，尽管如此，本系列介绍的Ruby元编程技术仍然可用，读者可以放心阅读。</p>
+<h2 id="-">翻译的动机</h2>
+<p>　　Ruby是动态的、魔幻而有趣的。而元编程（Metaprogramming）技术在Ruby中的应用也让我大开眼界，虽然以前也有浅显地介绍反射机制（Reflection），但我仍然觉得才疏学浅，不能让大家完全感受到元编程的优美。借此机会，我想借Satoshi Asakawa的本系列讲座，为大家展示一个绚丽的Ruby元编程世界。</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a href="./chapter01.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 前言"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

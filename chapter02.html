@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>实例变量、方法、类 | Ruby中的元编程</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="　　本系列翻译自Ruby Metaprogramming站点上的课程笔记，并加入了我（DeathKing）的一些个人演绎、资料补充等。希望对大家有所帮助。">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./chapter03.html" />
+        
+        
+        <link rel="prev" href="./chapter01.html" />
+        
+
+        <meta property="og:title" content="实例变量、方法、类 | Ruby中的元编程">
+        <meta property="og:site_name" content="Ruby中的元编程">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="2" data-basepath="." data-revision="1401444078312">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Ruby中的元编程</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="chapter01.html">
+            
+            <a href="./chapter01.html">
+                <i class="fa fa-check"></i> <b>1.</b> 前言
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02.html">
+            
+            <a href="./chapter02.html">
+                <i class="fa fa-check"></i> <b>2.</b> 实例变量、方法、类
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03.html">
+            
+            <a href="./chapter03.html">
+                <i class="fa fa-check"></i> <b>3.</b> 方法的调用
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04.html">
+            
+            <a href="./chapter04.html">
+                <i class="fa fa-check"></i> <b>4.</b> 实用元编程方法
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05.html">
+            
+            <a href="./chapter05.html">
+                <i class="fa fa-check"></i> <b>5.</b> 绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06.html">
+            
+            <a href="./chapter06.html">
+                <i class="fa fa-check"></i> <b>6.</b> 块和绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07.html">
+            
+            <a href="./chapter07.html">
+                <i class="fa fa-check"></i> <b>7.</b> 元编程实战
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="chapter08.html">
+            
+            <a href="./chapter08.html">
+                <i class="fa fa-check"></i> <b>8.</b> 结语
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 25%;min-width: 12.5%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./chapter01.html" title="前言" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
+    
+        <a href="./chapter02.html" title="实例变量、方法、类" class="chapter done new-chapter" data-progress="2" style="left: 25%;"></a>
+    
+        <a href="./chapter03.html" title="方法的调用" class="chapter  new-chapter" data-progress="3" style="left: 37.5%;"></a>
+    
+        <a href="./chapter04.html" title="实用元编程方法" class="chapter  new-chapter" data-progress="4" style="left: 50%;"></a>
+    
+        <a href="./chapter05.html" title="绑定" class="chapter  new-chapter" data-progress="5" style="left: 62.5%;"></a>
+    
+        <a href="./chapter06.html" title="块和绑定" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
+    
+        <a href="./chapter07.html" title="元编程实战" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
+    
+        <a href="./chapter08.html" title="结语" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_6">
+                    
+                        <h1 id="-">实例变量、方法、类</h1>
+<h2 id="-">对象的实例变量及方法</h2>
+<p>　　<strong>实例变量（Instance Variables）</strong>是当你使用它们时，才会被建立的对象。因此，即使是同一个类的实例，也可以有不同的实例变量。</p>
+<p>　　从技术层面上来看，一个对象（实例）只是存储了它的实例变量和其所属类的引用。因此，一个对象的实例变量仅存在于对象中，方法（我们称之为<strong>实例方法（Instance Methods）</strong>）则存在于对象所属的类中。这也就是为什么同一个类的实例都共享类中的方法，却不能共享实例变量的原因了。</p>
+<h2 id="-">类</h2>
+<ul>
+<li>类也是对象。</li>
+<li>因为类也是一个对象，能应用于对象的皆可运用于类。类和任何对象一样，有它们自己的类，<code>Class</code>类即是<code>Class</code>类的实例。</li>
+<li>与其它的对象一样，类也有方法。对象的方法即是其所属类的实例方法。亦即，任何一个类的方法就是<code>Class</code>类的实例方法。</li>
+<li>所有的类有共同的祖先<code>Object</code>类（都是从<code>Object</code>类直接或间接继承而来），而<code>Object</code>类又继承自<code>BasicObject</code>类，Ruby类的根本。</li>
+<li>类名是<strong>常量（Constant）</strong>。</li>
+</ul>
+<p>　　下面的代码有助于你理解这些信息：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># 对象的方法即为其所属类的实例方法</span>
+<span class="hljs-number">1</span>.methods == <span class="hljs-number">1</span>.<span class="hljs-keyword">class</span>.instance_methods
+<span class="hljs-comment">#=&gt; true</span>
+
+<span class="hljs-comment"># 类的“溯源”</span>
+<span class="hljs-constant">N</span> = <span class="hljs-constant">Class</span>.new
+<span class="hljs-constant">N</span>.ancestors
+<span class="hljs-comment">#=&gt; [N, Object, Kernel, BasicObject]</span>
+<span class="hljs-constant">N</span>.<span class="hljs-keyword">class</span>
+<span class="hljs-comment">#=&gt; Class</span>
+<span class="hljs-constant">N</span>.superclass
+<span class="hljs-comment">#=&gt; Object</span>
+<span class="hljs-constant">N</span>.superclass.superclass
+<span class="hljs-comment">#=&gt; BasicObject</span>
+<span class="hljs-constant">N</span>.superclass.superclass.superclass
+<span class="hljs-comment">#=&gt; nil</span>
+</code></pre>
+<h2 id="-">类是开放的</h2>
+<p>　　在Ruby中，类始终都是开放的。你可以重定义一个类，甚至于像<code>String</code>或<code>Array</code>这样的标准库中的类。（译注：Ruby 2.0引入了<code>refine</code>来限定这种打开类的作用域。）</p>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">String</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>writesize
+    <span class="hljs-keyword">self</span>.size
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+puts <span class="hljs-string">"Tell me my size!"</span>.writesize
+</code></pre>
+<blockquote>
+<p>注意!</p>
+<p>　　当你打开一个类的时候，一定要万分小心！如果你随意向类中添加方法或数据，你可能会收到许多的BUG，比如，你定义了自己的<code>captalize()</code>方法并且漫不经心的覆盖了原<code>String</code>类中的<code>captalize()</code>方法，你很可能会收到风险。</p>
+</blockquote>
+<h2 id="-initialize-">多重initialize方法</h2>
+<p>　　下面将示范一个类的<strong>重载（Overloading）</strong>。我们编写了一个<code>Rectangule</code>类，该类用于将一个矩形呈现在网格上。当你在实例化一个<code>Rectangule</code>对象时，你可以使用两种方法：传递矩形的左上、右下的坐标，或者左上点坐标及矩形的宽度、高度。虽然Ruby中每个类只有一个<code>initialize</code>方法，但这种做法允许你的一个<code>initialize</code>就像两个不同的<code>initialize</code>一样。</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># The Rectangle constructor accepts arguments in either</span>
+<span class="hljs-comment"># of the following forms:</span>
+<span class="hljs-comment">#   Rectangle.new([x_top, y_left], length, width)</span>
+<span class="hljs-comment">#   Rectangle.new([x_top, y_left], [x_bottom, y_right])</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize(*args)
+    <span class="hljs-keyword">if</span> args.size &lt; <span class="hljs-number">2</span>  || args.size &gt; <span class="hljs-number">3</span>
+      puts <span class="hljs-string">'Sorry. This method takes either 2 or 3 arguments.'</span>
+    <span class="hljs-keyword">else</span>
+      puts <span class="hljs-string">'Correct number of arguments.'</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-constant">Rectangle</span>.new([<span class="hljs-number">10</span>, <span class="hljs-number">23</span>], <span class="hljs-number">4</span>, <span class="hljs-number">10</span>)
+<span class="hljs-constant">Rectangle</span>.new([<span class="hljs-number">10</span>, <span class="hljs-number">23</span>], [<span class="hljs-number">14</span>, <span class="hljs-number">13</span>])
+</code></pre>
+<p>　　上述代码还不足以编写一个完整的<code>Rectangule</code>程序，但却足以演示方法重载是如何实现的。对<code>initialize</code>方法的重载可使得其具有处理可变参数的能力。这种技巧不但适用于<code>initialize</code>方法，也适用于其他方法！</p>
+<h2 id="-">匿名类</h2>
+<p>　　一个<strong>匿名类（Anonymous Class）</strong>也被称作<strong>单例类（Singleton Class）</strong>，<strong>特征类（Eigenclass）</strong>，<strong>鬼魂类（Ghost Class）</strong>，<strong>元类（Metaclass）</strong>或者<strong>uniclass</strong>。</p>
+<blockquote>
+<p>　　关于eigenclass这个名字的由来：大多数人叫它singlton classes，另一部分人叫它metaclasses，意思是the class of a class。但是这些名字都不足以描述它。Ruby之父Matz至今还没有给出一个官方的名字，但是他似乎喜欢叫它eigenclass，eigen这个词来自于德语，意思是one’s own。所以，eigenclass就被翻译为“an object’s own class”。而eigenclass的方法名字，则取了一个比较科学严肃的名字叫Singlton Methods。
+——参考自<a href="[blackanger对《Metaprogramming Ruby》的笔记(5">blackanger对Metaprogramming Ruby的笔记(5)</a>](<a href="http://book.douban.com/people/blackanger/annotation/4086938/" target="_blank">http://book.douban.com/people/blackanger/annotation/4086938/</a>))</p>
+<p>　　“特征类”是一个很好的命名。这个“特征”和线性代数中“特征值”、“特征向量”的“特征”是一个意思。“特征值”、“特征向量”的名称是由德国数学家 David Hilbert （大卫·希尔伯特）在 1904 年使用并得以流传的，德语单词“Eigen”本意为“自己的”。Eigenclass，也就意味着“自己的类”，用于 Ruby 的“单例类”概念之上十分贴切，因为“单例类”实际上就是一个对象独有的类。
+——参考自紫苏的<a href="http://szsu.wordpress.com/2011/01/17/%E7%89%B9%E5%BE%81%E7%B1%BB/" target="_blank">特征类</a>一文</p>
+</blockquote>
+<p>　　Ruby中每个对象都有其自己的匿名类，一个类能拥有方法，但是只能对该对象本身其作用：当我们对一个具体的对象添加方法时，Ruby会插入一个新的匿名类于父类之间，来容纳这个新建立的方法。值得注意的是，匿名类通常是不可见（Hidden）的。它没有名字因此不能像其他类一样，通过一个常量来访问。你不能为这个匿名类实例化一个新的对象。</p>
+<p>　　下面展示了建立匿名类的一些方法：</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># 1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rubyist</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-keyword">self</span>.who
+    <span class="hljs-string">"Geek"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># 2</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rubyist</span></span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-inheritance">&lt;</span><span class="hljs-inheritance">&lt; <span class="hljs-parent">self</span></span></span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> </span>who
+      <span class="hljs-string">"Geek"</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># 3</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rubyist</span></span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> </span><span class="hljs-constant">Rubyist</span>.who
+  <span class="hljs-string">"Geek"</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">#4</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rubyist</span></span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-constant">Rubyist</span>.instance_eval <span class="hljs-keyword">do</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>who
+    <span class="hljs-string">"Geek"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+puts <span class="hljs-constant">Rubyist</span>.who <span class="hljs-comment"># =&gt; Geek</span>
+
+<span class="hljs-comment"># 5</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-inheritance">&lt;</span><span class="hljs-inheritance">&lt; <span class="hljs-parent">Rubyist</span></span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>who
+    <span class="hljs-string">"Geek"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>　　上述5段代码，分别定义了<code>Rubylist.who</code>方法，该方法返回<code>&quot;Geek&quot;</code>。</p>
+<p>　　任何时候，一旦你看到如上述标号为#5的代码，<code>class</code>关键字后面紧接着<code>&lt;&lt;</code>，你就应该确信这里为<code>&lt;&lt;</code>右边的对象打开了一个匿名类。</p>
+<p>　　你可以参看<a href="http://banisterfiend.wordpress.com/2008/11/25/a-complete-ruby-class-diagram/" target="_blank">Complete Ruby Class Diagram</a> 一文，文中展示了Ruby 1.8.6中的用户定义类及他们的超类的关系。而下面这幅由Artem S贡献的Ruby层次关系（Ruby 2.0.0）也非常有用：</p>
+<p><img src="http://rubylearning.com/images/Ruby_2.0.0_Hierarchy.png" alt="Screen"></p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./chapter01.html" class="navigation navigation-prev " aria-label="Previous page: 前言"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./chapter03.html" class="navigation navigation-next " aria-label="Next page: 方法的调用"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

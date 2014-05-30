@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="./manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>前言 | Ruby中的元编程</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="　　本系列翻译自Ruby Metaprogramming站点上的课程笔记，并加入了我（DeathKing）的一些个人演绎、资料补充等。希望对大家有所帮助。">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="./chapter02.html" />
+        
+        
+        <link rel="prev" href="./index.html" />
+        
+
+        <meta property="og:title" content="前言 | Ruby中的元编程">
+        <meta property="og:site_name" content="Ruby中的元编程">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="1" data-basepath="." data-revision="1401444078312">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="./" >Ruby中的元编程</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="./"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="chapter01.html">
+            
+            <a href="./chapter01.html">
+                <i class="fa fa-check"></i> <b>1.</b> 前言
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02.html">
+            
+            <a href="./chapter02.html">
+                <i class="fa fa-check"></i> <b>2.</b> 实例变量、方法、类
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03.html">
+            
+            <a href="./chapter03.html">
+                <i class="fa fa-check"></i> <b>3.</b> 方法的调用
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04.html">
+            
+            <a href="./chapter04.html">
+                <i class="fa fa-check"></i> <b>4.</b> 实用元编程方法
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05.html">
+            
+            <a href="./chapter05.html">
+                <i class="fa fa-check"></i> <b>5.</b> 绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06.html">
+            
+            <a href="./chapter06.html">
+                <i class="fa fa-check"></i> <b>6.</b> 块和绑定
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07.html">
+            
+            <a href="./chapter07.html">
+                <i class="fa fa-check"></i> <b>7.</b> 元编程实战
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="chapter08.html">
+            
+            <a href="./chapter08.html">
+                <i class="fa fa-check"></i> <b>8.</b> 结语
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 12.5%;min-width: 0%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="./index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="./chapter01.html" title="前言" class="chapter done new-chapter" data-progress="1" style="left: 12.5%;"></a>
+    
+        <a href="./chapter02.html" title="实例变量、方法、类" class="chapter  new-chapter" data-progress="2" style="left: 25%;"></a>
+    
+        <a href="./chapter03.html" title="方法的调用" class="chapter  new-chapter" data-progress="3" style="left: 37.5%;"></a>
+    
+        <a href="./chapter04.html" title="实用元编程方法" class="chapter  new-chapter" data-progress="4" style="left: 50%;"></a>
+    
+        <a href="./chapter05.html" title="绑定" class="chapter  new-chapter" data-progress="5" style="left: 62.5%;"></a>
+    
+        <a href="./chapter06.html" title="块和绑定" class="chapter  new-chapter" data-progress="6" style="left: 75%;"></a>
+    
+        <a href="./chapter07.html" title="元编程实战" class="chapter  new-chapter" data-progress="7" style="left: 87.5%;"></a>
+    
+        <a href="./chapter08.html" title="结语" class="chapter  new-chapter" data-progress="8" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_5">
+                    
+                        <h1 id="-">前言</h1>
+<h2 id="-">元编程概览</h2>
+<p>　　元编程的定义看似是明确的，但却又模棱两可。维基百科上对元编程的定义如下：</p>
+<blockquote>
+<p>　　元编程是指某类计算机程序的编写，这类计算机程序编写或者操纵其它程序（或者自身）作为它们的数据，或者在运行时完成部分本应在编译时完成的工作。多数情况下，与手工编写全部代码相比，程序员可以获得更高的工作效率, 或者给与程序更大的灵活度去处理新的情形而无需重新编译。</p>
+</blockquote>
+<p>　　而我也在网上找到了<a href="http://lifegoo.pluskid.org/?p=46" target="_blank">Free Mind</a>对元编程的简介：</p>
+<blockquote>
+<p>　　回到元编程，程序处理程序可以分为“处理其他程序”和“处理自己”，对于前者，有我们熟悉的lex和yacc作为例子。而对于后者，如果再细分，可以分为“宏扩展”、“源代码生成”以及“运行时动态修改”等几种。</p>
+<p>　　宏扩展从最简单的C语言的宏到复杂的Lisp的宏系统，甚至C++的“模板元编程”也可以包含在这一类里面，我在这里对它们进行了一些介绍。</p>
+<p>　　源代码生成则主要是利用编程语言的eval功能，对生成出来的源代码（除了在Lisp这样的语言里面以外，通常是以字符串的方式）进行求值。有一类有趣的程序quine，它们运行的结果就是把自己的源代码原封不动地打印出来，通常要证明你精通某一门语言，为它写一个quine是绝佳的选择了，这里有我搜集的一些相关资料。</p>
+<p>　　最后是运行时修改，像Lisp、Python以及Ruby之类的语言允许在运行时直接修改程序自身的结构，而不用再经过“生成源代码”这一层。当然对源代码进行eval的方法也许是最灵活的，但是它的效率却不怎么样，所以相来说并不是特别流行。这里主要介绍的是这种方式的元编程在Ruby里面的应用，如果对元编程的其他方面感兴趣，前面的几个链接应该都是很好的去处。</p>
+</blockquote>
+<p>　　而元编程技术，最早来自于Lisp。John M. Vlissides在<a href="http://books.google.com.hk/books?id=QhMocNso2XoC&amp;pg=PA214&amp;lpg=PA214&amp;dq=lisp+%E5%85%83%E7%BC%96%E7%A8%%20%208B&amp;source=bl&amp;ots=T92M3sWWcE&amp;sig=zs9oTXIzkDB-_Y3-rqo1Z4ZgM0c&amp;hl=zh-%20%20CN&amp;ei=fHZQTrvlNsjMrQfZmPSsAg&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=9&amp;ved=0CFcQ6AEwCA#v=onepage&amp;q=lisp%20%E5%85%83%  E7%BC%96%E7%A8%8B&amp;f=false" target="_blank">Pattern Languages of Program Design</a>一书中写到：</p>
+<blockquote>
+<p>　　Lisp社团位于现在称之为“反射编程”（reflective programming）或“元编程”（metaprogramming）——对可编程语言编程的前沿。Smalltalk事实上从20世纪70年代后期就开始支持元类。但它是Lisp专用语言，从Comman和ObjVlisp开始，推动元编程成为主流[Bobrow+86，Cointe87]。早期工作为主对象协议（Metaobject Protocal）[Kiczales+91]打下了基础。主对象协议主要用来推广元编程。商业系统也开始使用元编程，特别是在IBM SOM平台上。</p>
+</blockquote>
+<p>　　而你或许不知道<a href="http://en.wikipedia.org/wiki/Meta" target="_blank">Meta（源于希腊语）</a>这个前缀在这里的意思是抽象。</p>
+<h2 id="ruby-">Ruby中的元编程</h2>
+<p>　　Ruby中的元编程，是可以在运行时动态地操作语言结构（如类、模块、实例变量等）的技术。你甚至于可以在不用重启的情况下，在运行时直接键入一段新的Ruby代码，并执行它。</p>
+<p>　　Ruby的元编程，也具有“利用代码来编写代码”的作用。例如，常见的<code>attr_accessor</code>等方法就是如此。</p>
+<h2 id="-">一点技术上的细节</h2>
+<blockquote>
+<p>　　Lisp通过既可以用于代码也可以用于数据的S表达式（本质上是程序抽象语法树的直接翻译）支持语法层的元编程。Lisp的元编程大量的使用了宏，宏的本质是代码模板。Lisp的这种方式带来的好处是可以在单一的层次上进行编程，代码及数据都以相同的方式表现，唯一的区别在于是否会被估值（evaluate）。然而语法层的元编程模式也有其弊端，用在同一命名空间下运行和估值的代码对两个抽象层次进行操作，会直接导致变量捕获（Variable Capture）和不经意的多次估值这类问题的出现。纵使有标准的Lisp惯用法可以处理这些问题，Lisp程序员仍然是需要学习和考虑更多的东西。</p>
+<p>　　Ruby可以通过ParseTree库来完成语法层的自省，ParseTree可以将Ruby源代码翻译成S表达式。使用此库来编写的一个有趣的应用叫做Heckle，它是一个“测试的测试”框架，能够对Ruby代码解析及改变，例如改变字符串或者将&#39;true&#39;和&#39;false&#39;进行来回的调换。其想法是如果测试覆盖率很好，那么对代码任何部分的任何变更都应该导致单元测试的失败。</p>
+<p>　　与语法自省相对应的一种更高层次的自省叫做语义自省，既通过语言更高层次的数据结构对程序进行探查。在不同的编程语言中语义自省的方式十分不同，在Ruby语言中一般来说都是作用于类及方法层上：创建方法，重写方法，给方法赋予别名（alias）；截取方法调用；操纵继承链。这些技术和语法层自省相比与已有的代码更为正交（相关度更小），因为它们倾向于将已存在的方法视为黑盒而不是修改其内部实现。</p>
+<p>——摘自<a href="http://railser.cn/blog/what-is-metaprogramming/" target="_blank">里克的自习室</a></p>
+</blockquote>
+<h2 id="-">更多的参考资料</h2>
+<ol>
+<li>Ruby&#39;s Metaprogramming toolbox:<a href="http://weare.buildingsky.net/2009/08/25/rubys-metaprogramming-toolbox" target="_blank">http://weare.buildingsky.net/2009/08/25/rubys-metaprogramming-toolbox</a></li>
+<li>Metaprogramming in Ruby:<a href="http://yehudakatz.com/2009/11/15/metaprogramming-in-ruby-its-all-about-the-self/" target="_blank">http://yehudakatz.com/2009/11/15/metaprogramming-in-ruby-its-all-about-the-self/</a></li>
+<li>Practical Metaprogramming with Ruby: Storing Preferences:<a href="http://www.kalzumeus.com/2009/11/17/practical-metaprogramming-with-ruby-storing-preferences/" target="_blank">http://www.kalzumeus.com/2009/11/17/practical-metaprogramming-with-ruby-storing-preferences/</a></li>
+<li>The Ruby Object Model and Metaprogramming:<a href="http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming" target="_blank">http://pragprog.com/screencasts/v-dtrubyom/the-ruby-object-model-and-metaprogramming</a></li>
+<li>Metaprogramming Ruby: class_eval and instance_eval:<a href="http://jimmycuadra.com/posts/metaprogramming-ruby-class-eval-and-instance-eval" target="_blank">http://jimmycuadra.com/posts/metaprogramming-ruby-class-eval-and-instance-eval</a></li>
+<li>Metaprogramming in Ruby:<a href="http://rubyrogues.com/metaprogramming-in-ruby/" target="_blank">http://rubyrogues.com/metaprogramming-in-ruby/</a></li>
+</ol>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./chapter02.html" class="navigation navigation-next " aria-label="Next page: 实例变量、方法、类"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="gitbook/app.js"></script>
+        
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
