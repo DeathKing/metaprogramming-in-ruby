@@ -470,7 +470,7 @@ def mem_result(obj, method)
       if mem.has_key?(args)
         mem[args]
       else
-        mem[args] = super
+        mem[args] = super(*args)
       end
     end
   end
